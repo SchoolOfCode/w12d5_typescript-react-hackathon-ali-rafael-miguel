@@ -1,10 +1,11 @@
 type inputProps = {
   city: string
-  setCity: => void
+  handleChange: (event : React.ChangeEvent<HTMLInputElement>) =>  void 
+  Fetching: string
 }
 
-export default function InputComponent(inputProps){
-  const { city , setCity  } = inputProps
+export default function InputComponent({handleChange, city, Fetching}: inputProps){
+  // const { city , setCity  } = inputProps
   // will be a piece of state passed down from App
   // we take the city name from input and add to the state
 
@@ -15,8 +16,8 @@ export default function InputComponent(inputProps){
   // form or input type="text"
   return (
     <form>
-      <input type="text" onChange={} placeholder="City name"></input>
-      <button onClick={}>Submit</button>
+      <input type="text" onChange={handleChange} placeholder="City name" value={city}></input>
+      <button onClick ={Fetching}> Submit</button>
     </form>
   )
 }
