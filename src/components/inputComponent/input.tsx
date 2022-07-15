@@ -20,14 +20,14 @@ export default function InputComponent({
   // onClick to sumbit the change
   // form or input type="text"
   return (
-    <div>
-      <input
+    <div className="input-box">
+      <input className="input"
         type="text"
         onChange={handleChange}
         placeholder="City name"
         value={city}
       ></input>
-      <button onClick={fetching}> Submit</button>
+      <button className="button" onClick={fetching}> Submit</button>
     </div>
   );
 }
