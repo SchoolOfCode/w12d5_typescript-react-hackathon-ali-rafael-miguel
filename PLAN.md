@@ -6,7 +6,6 @@
 
 ## search by city - input type="text"
 ### take the city string add to url api request to fetch the weather by city data
-### to render the weather data into a display card
 
 ## display today's weather
 

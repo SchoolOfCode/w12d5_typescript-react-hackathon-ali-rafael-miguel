@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import InputComponent from '../inputComponent/input';
+import Display from '../Display/display';
 import './App.css';
 
 interface main {
   temp: number;
-};
+}
 
 function App() {
   const [city, setCity] = useState('');
@@ -22,7 +23,7 @@ function App() {
     // event.preventDefault();
     const response = await fetch(request);
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     setIcon(data.weather[0].icon);
     setDecription(data.weather[0].description);
     return data;
@@ -35,9 +36,9 @@ function App() {
       ).then(({ main }) => {
         console.log(main.temp);
         setWeatherData(main.temp);
-        console.log(main)
+        console.log(main);
         console.log(weatherData);
-        setExists(true)
+        setExists(true);
       });
     } catch (error) {
       console.log(error);
@@ -46,8 +47,14 @@ function App() {
 
   return (
     <div className="App">
-      <InputComponent handleChange={onChange} city={city} fetching={apiWeatherTemp} />
-     {exists && <Display temp={weatherData} icon={icon} description={description}/>}
+      <InputComponent
+        handleChange={onChange}
+        city={city}
+        fetching={apiWeatherTemp}
+      />
+      {exists && (
+        <Display temp={weatherData} icon={icon} description={description} />
+      )}
     </div>
   );
 }
