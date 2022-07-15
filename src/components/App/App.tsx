@@ -10,6 +10,8 @@ function App() {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(0);
   const [exists, setExists] = useState(false);
+  const [icon, setIcon] = useState('');
+  const [description, setDecription] = useState('');
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>): void {
     setCity(e.target.value);
@@ -21,7 +23,8 @@ function App() {
     const response = await fetch(request);
     const data = await response.json();
     console.log(data)
-    setWeatherData(data);
+    setIcon(data.weather[0].icon);
+    setDecription(data.weather[0].description);
     return data;
   }
 
@@ -44,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <InputComponent handleChange={onChange} city={city} fetching={apiWeatherTemp} />
-     {exists && <p>{weatherData}</p>}
+     {exists && <Display temp={weatherData} icon={icon} description={description}/>}
     </div>
   );
 }

@@ -15,3 +15,5 @@
 
 ### Sprints
 * 1st - make the input component and to build the fetch request
+* 2nd get weather icon and decription
+* 3rd make the temp card
