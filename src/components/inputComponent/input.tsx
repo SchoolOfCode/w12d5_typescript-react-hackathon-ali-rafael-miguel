@@ -4,6 +4,7 @@ type inputProps = {
   fetching: () => void;
 };
 
+
 export default function InputComponent({
   handleChange,
   city,
