@@ -1,4 +1,3 @@
-import { mainModule } from 'process';
 import React, { useState } from 'react';
 import InputComponent from '../inputComponent/input';
 import './App.css';
@@ -21,6 +20,7 @@ function App() {
     // event.preventDefault();
     const response = await fetch(request);
     const data = await response.json();
+    console.log(data)
     setWeatherData(data);
     return data;
   }
@@ -32,6 +32,7 @@ function App() {
       ).then(({ main }) => {
         console.log(main.temp);
         setWeatherData(main.temp);
+        console.log(main)
         console.log(weatherData);
         setExists(true)
       });
@@ -42,7 +43,7 @@ function App() {
 
   return (
     <div className="App">
-      <InputComponent handleChange={onChange} city={city} fetching={x} />
+      <InputComponent handleChange={onChange} city={city} fetching={apiWeatherTemp} />
      {exists && <p>{weatherData}</p>}
     </div>
   );

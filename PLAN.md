@@ -14,4 +14,4 @@
 
 
 ### Sprints
-* 1st - make the input component and to build the fetch request.git b
+* 1st - make the input component and to build the fetch request
