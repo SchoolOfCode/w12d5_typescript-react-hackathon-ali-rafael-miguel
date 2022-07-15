@@ -3,22 +3,25 @@ import InputComponent from '../inputComponent/input';
 import './App.css';
 
 function App() {
-  const [city, setCity] = useState("")
-
+  const [city, setCity] = useState("");
+  const [weatherData, setWeatherData] = useState({});
+ 
   function onChange(e: React.ChangeEvent<HTMLInputElement>): void{
     setCity(e.target.value);
     console.log(city)
   }
 
-  function Fetching(){
-    // Checks if the city string exists
-    // If it does, send a fetch request
+  async function Fetching<T>(city: string): Promise<T> {
+    const response = await fetch(`url${city}`)
+    const data = await response.json();
+    setWeatherData(data);
 
   }
 
   return (
     <div className="App">
       <InputComponent handleChange={onChange} city={city}/>
+      {/* <DisplayData props={weatherData} /> */}
     </div>
   );
 }
